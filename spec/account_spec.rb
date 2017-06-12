@@ -43,6 +43,12 @@ RSpec.describe Account do
       subject.withdraw(50)
       expect(subject.balance).to eq 40
     end
+
+    it 'does not allow withdrawal if balance is less than minimum balance' do
+      error = 'Insuficient funds in account.'
+      subject.withdraw(10)
+      expect { subject.withdraw(10) }.to raise_error error
+    end
   end
 
 end
