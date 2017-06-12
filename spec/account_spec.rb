@@ -8,4 +8,10 @@ RSpec.describe Account do
     expect(subject.balance).to eq(0)
   end
 
+  describe '#deposit' do
+    it 'can recieve a deposit of 10' do
+      expect { subject.deposit(10) }.to change { subject.balance }.by 10
+    end
+  end
+
 end
